@@ -14,7 +14,7 @@ var states;
         plane.update();
 
         for (var count = 0; count < constants.CLOUD_NUM; count++) {
-            clouds[count].update();
+            arrows[count].update();
         }
 
         collision.update();
@@ -45,14 +45,14 @@ var states;
         stage.cursor = "none";
 
         for (var count = 0; count < constants.CLOUD_NUM; count++) {
-            clouds[count] = new objects.Cloud(stage, game);
+            arrows[count] = new objects.Cloud(stage, game);
         }
 
         // Display Scoreboard
         scoreboard = new objects.Scoreboard(stage, game);
 
         // Instantiate Collision Manager
-        collision = new managers.Collision(plane, island, clouds, scoreboard);
+        collision = new managers.Collision(plane, island, arrows, scoreboard);
 
         stage.addChild(game);
     }
