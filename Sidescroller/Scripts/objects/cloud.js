@@ -17,17 +17,17 @@ var objects;
         }
         Cloud.prototype.update = function () {
             this.image.y += this.dy;
-            this.image.x += this.dx;
-            if (this.image.y > this.stage.canvas.height + this.height) {
+            this.image.x -= this.dx;
+            if (this.image.x <= (0 - this.height)) {
                 this.reset();
             }
         };
 
         Cloud.prototype.reset = function () {
-            this.image.x = Math.floor(Math.random() * this.stage.canvas.width);
-            this.dy = Math.floor(Math.random() * 5 + 5);
-            this.dx = Math.floor(Math.random() * -3) + Math.floor(Math.random() * 3);
-            this.image.y = -this.height;
+            this.image.y = Math.floor(Math.random() * this.stage.canvas.height);
+            this.dy = Math.floor(Math.random() * -3) + Math.floor(Math.random() * 3);
+            this.dx = Math.floor(Math.random() * 5 + 5);
+            this.image.x = this.stage.canvas.width + this.width;
         };
 
         Cloud.prototype.destroy = function () {

@@ -6,7 +6,7 @@ var objects;
         function Plane(stage, game) {
             this.stage = stage;
             this.game = game;
-            this.image = new createjs.Sprite(managers.Assets.atlas, "plane");
+            this.image = new createjs.Bitmap(managers.Assets.loader.getResult("adventurer"));
             this.image.x = 40;
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
