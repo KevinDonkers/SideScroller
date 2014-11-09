@@ -16,6 +16,7 @@
             this.score = 0;
             this.label = new createjs.Text(this.labelText, constants.LABEL_FONT, constants.LABEL_COLOUR);
             this.update();
+            this.label.y = 440;
             this.width = this.label.getBounds().width;
             this.height = this.label.getBounds().height;
 

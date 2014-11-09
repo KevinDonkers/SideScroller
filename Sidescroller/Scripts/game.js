@@ -11,10 +11,10 @@
 /// <reference path="states/play.ts" />
 /// <reference path="states/menu.ts" />
 /// <reference path="states/gameover.ts" />
-// Mail Pilot Version 11 - Added basic state machine structure - Added Button and Label classes
-// Changed online repo
+/// <reference path="states/instructions.ts" />
 var stage;
 var game;
+var themeSound;
 
 var ocean;
 var plane;
@@ -26,6 +26,7 @@ var collision;
 
 var tryAgain;
 var playButton;
+var instructionsButton;
 
 var currentState;
 var currentStateFunction;
@@ -43,7 +44,7 @@ function init() {
     createjs.Ticker.setFPS(60);
     createjs.Ticker.addEventListener("tick", gameLoop);
     optimizeForMobile();
-
+    themeSound = createjs.Sound.play('theme', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
     currentState = constants.MENU_STATE;
     changeState(currentState);
 }
@@ -73,6 +74,9 @@ function changeState(state) {
             // instantiate play screen
             currentStateFunction = states.playState;
             states.play();
+            if (themeSound.playState != createjs.Sound.PLAY_SUCCEEDED) {
+                themeSound.play();
+            }
             break;
 
         case constants.GAME_OVER_STATE:
@@ -80,6 +84,14 @@ function changeState(state) {
 
             // instantiate game over screen
             states.gameOver();
+            themeSound.stop();
+            break;
+
+        case constants.INSTRUCTION_STATE:
+            currentStateFunction = states.instructionState;
+
+            // instantiate instruction screen
+            states.instructions();
             break;
     }
 }

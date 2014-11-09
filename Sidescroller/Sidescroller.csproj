@@ -12,8 +12,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sidescroller</RootNamespace>
-    <AssemblyName>COMP2068-TypeScriptDemo</AssemblyName>
+    <RootNamespace>TempleDiver</RootNamespace>
+    <AssemblyName>TempleDiver</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -59,12 +59,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\images\adventurer.png" />
-    <Content Include="assets\images\gem.png" />
     <Content Include="assets\images\temple.jpg" />
-    <Content Include="assets\sounds\engine.ogg" />
-    <Content Include="assets\sounds\thunder.ogg" />
-    <Content Include="assets\sounds\yay.ogg" />
+    <Content Include="assets\sounds\gem.wav" />
+    <Content Include="assets\sounds\hit.wav" />
+    <Content Include="assets\sounds\theme.wav" />
     <Content Include="mailPilot-v11.csproj" />
     <Content Include="Scripts\constants.js.map" />
     <Content Include="Scripts\game.js.map" />
@@ -89,14 +87,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\images\1945.bmp" />
     <Content Include="assets\images\atlas.png" />
-    <Content Include="assets\images\cloud.png" />
-    <Content Include="assets\images\island.png" />
     <Content Include="assets\images\loading.jpg" />
-    <Content Include="assets\images\ocean.gif" />
-    <Content Include="assets\images\plane.png" />
-    <Content Include="assets\images\sideplane.gif" />
     <Content Include="css\app.css" />
     <Content Include="css\normalize.css" />
     <Content Include="index.html" />
@@ -156,6 +148,7 @@
     <TypeScriptCompile Include="Scripts\objects\plane.ts" />
     <TypeScriptCompile Include="Scripts\objects\scoreboard.ts" />
     <TypeScriptCompile Include="Scripts\states\gameover.ts" />
+    <TypeScriptCompile Include="Scripts\states\instructions.ts" />
     <TypeScriptCompile Include="Scripts\states\menu.ts" />
     <TypeScriptCompile Include="Scripts\states\play.ts" />
   </ItemGroup>

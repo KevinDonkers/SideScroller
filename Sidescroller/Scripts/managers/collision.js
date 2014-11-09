@@ -39,7 +39,7 @@ var managers;
             p2.x = cloud.image.x;
             p2.y = cloud.image.y;
             if (this.distance(p1, p2) < ((this.plane.height / 2) + (cloud.height / 2))) {
-                createjs.Sound.play("thunder");
+                createjs.Sound.play("hit");
                 this.scoreboard.lives -= 1;
                 cloud.reset();
             }

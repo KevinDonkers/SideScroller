@@ -16,6 +16,15 @@ module states {
         changeState(currentState);
     }
 
+    export function instructionsButtonClicked(event: MouseEvent) {
+        stage.removeChild(game);
+        plane.destroy();
+        game.removeAllChildren();
+        game.removeAllEventListeners();
+        currentState = constants.INSTRUCTION_STATE;
+        changeState(currentState);
+    }
+
     export function menuState() {
         ocean.update();
         plane.update();
@@ -39,9 +48,12 @@ module states {
         game.addChild(gameNameLabel);
 
         // Display Play Again Button
-        playButton = new objects.Button(stage.canvas.width / 2, 300, "playButton");
+        playButton = new objects.Button(stage.canvas.width / 2, 200, "playButton");
+        instructionsButton = new objects.Button(stage.canvas.width / 2, 300, "instructionsButton");
         game.addChild(playButton);
+        game.addChild(instructionsButton);
         playButton.addEventListener("click", playButtonClicked);
+        instructionsButton.addEventListener("click", instructionsButtonClicked);
 
         stage.addChild(game);
     }

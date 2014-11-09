@@ -18,6 +18,16 @@ var states;
     }
     states.playButtonClicked = playButtonClicked;
 
+    function instructionsButtonClicked(event) {
+        stage.removeChild(game);
+        plane.destroy();
+        game.removeAllChildren();
+        game.removeAllEventListeners();
+        currentState = constants.INSTRUCTION_STATE;
+        changeState(currentState);
+    }
+    states.instructionsButtonClicked = instructionsButtonClicked;
+
     function menuState() {
         ocean.update();
         plane.update();
@@ -42,9 +52,12 @@ var states;
         game.addChild(gameNameLabel);
 
         // Display Play Again Button
-        playButton = new objects.Button(stage.canvas.width / 2, 300, "playButton");
+        playButton = new objects.Button(stage.canvas.width / 2, 200, "playButton");
+        instructionsButton = new objects.Button(stage.canvas.width / 2, 300, "instructionsButton");
         game.addChild(playButton);
+        game.addChild(instructionsButton);
         playButton.addEventListener("click", playButtonClicked);
+        instructionsButton.addEventListener("click", instructionsButtonClicked);
 
         stage.addChild(game);
     }
