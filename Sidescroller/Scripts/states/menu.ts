@@ -1,15 +1,16 @@
 ﻿/// <reference path="../constants.ts" />
 /// <reference path="../objects/scoreboard.ts" />
-/// <reference path="../objects/plane.ts" />
-/// <reference path="../objects/ocean.ts" />
-/// <reference path="../objects/island.ts" />
-/// <reference path="../objects/cloud.ts" />
+/// <reference path="../objects/adventurer.ts" />
+/// <reference path="../objects/arrow.ts" />
+/// <reference path="../objects/gem.ts" />
+/// <reference path="../objects/temple.ts" />
 /// <reference path="../objects/button.ts" />
 /// <reference path="../objects/label.ts" />
+
 module states {
     export function playButtonClicked(event: MouseEvent) {
         stage.removeChild(game);
-        plane.destroy();
+        adventurer.destroy();
         game.removeAllChildren();
         game.removeAllEventListeners();
         currentState = constants.PLAY_STATE;
@@ -18,7 +19,7 @@ module states {
 
     export function instructionsButtonClicked(event: MouseEvent) {
         stage.removeChild(game);
-        plane.destroy();
+        adventurer.destroy();
         game.removeAllChildren();
         game.removeAllEventListeners();
         currentState = constants.INSTRUCTION_STATE;
@@ -26,8 +27,8 @@ module states {
     }
 
     export function menuState() {
-        ocean.update();
-        plane.update();
+        temple.update();
+        adventurer.update();
     }
 
     export function menu() {
@@ -37,8 +38,8 @@ module states {
         game = new createjs.Container();
 
         // Instantiate Game Objects
-        ocean = new objects.Ocean(stage, game);
-        plane = new objects.Plane(stage, game);
+        temple = new objects.Temple(stage, game);
+        adventurer = new objects.Adventurer(stage, game);
 
         // Show Cursor
         stage.cursor = "default";

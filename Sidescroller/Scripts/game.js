@@ -1,9 +1,9 @@
 ﻿/// <reference path="constants.ts" />
 /// <reference path="managers/asset.ts" />
-/// <reference path="objects/cloud.ts" />
-/// <reference path="objects/island.ts" />
-/// <reference path="objects/ocean.ts" />
-/// <reference path="objects/plane.ts" />
+/// <reference path="objects/temple.ts" />
+/// <reference path="objects/adventurer.ts" />
+/// <reference path="objects/arrow.ts" />
+/// <reference path="objects/gem.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/gametext.ts" />
 /// <reference path="objects/label.ts" />
@@ -17,9 +17,9 @@ var stage;
 var game;
 var themeSound;
 
-var ocean;
-var plane;
-var island;
+var temple;
+var adventurer;
+var gem;
 var arrows = [];
 var scoreboard;
 

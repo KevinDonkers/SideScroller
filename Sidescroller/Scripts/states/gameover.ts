@@ -1,14 +1,15 @@
 ﻿/// <reference path="../constants.ts" />
 /// <reference path="../objects/button.ts" />
-/// <reference path="../objects/cloud.ts" />
-/// <reference path="../objects/island.ts" />
+/// <reference path="../objects/adventurer.ts" />
+/// <reference path="../objects/arrow.ts" />
+/// <reference path="../objects/gem.ts" />
+/// <reference path="../objects/temple.ts" />
 /// <reference path="../objects/label.ts" />
-/// <reference path="../objects/ocean.ts" />
-/// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/scoreboard.ts" />
+
 module states {
     export function gameOverState() {
-        ocean.update();
+        temple.update();
     }
 
     // Restart Game when Try Again Button is clicked
@@ -30,7 +31,7 @@ module states {
         game = new createjs.Container();
 
         // Instantiate Game Objects
-        ocean = new objects.Ocean(stage, game);
+        temple = new objects.Temple(stage, game);
 
         // Show Cursor
         stage.cursor = "default";

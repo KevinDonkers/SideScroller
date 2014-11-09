@@ -1,16 +1,16 @@
 ﻿/// <reference path="../constants.ts" />
 /// <reference path="../objects/scoreboard.ts" />
-/// <reference path="../objects/plane.ts" />
-/// <reference path="../objects/ocean.ts" />
-/// <reference path="../objects/island.ts" />
-/// <reference path="../objects/cloud.ts" />
+/// <reference path="../objects/adventurer.ts" />
+/// <reference path="../objects/arrow.ts" />
+/// <reference path="../objects/gem.ts" />
+/// <reference path="../objects/temple.ts" />
 /// <reference path="../objects/button.ts" />
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/gametext.ts" />
 module states {
     export function instructionState() {
-        ocean.update();
-        plane.update();
+        temple.update();
+        adventurer.update();
     }
 
     export function instructions() {
@@ -25,7 +25,7 @@ module states {
         var instructionAvatar = new createjs.Sprite(managers.Assets.atlas, "adventurer");
         var instructionGem = new createjs.Sprite(managers.Assets.atlas, "gem");
         var instructionArrow = new createjs.Sprite(managers.Assets.atlas, "arrow");
-        ocean = new objects.Ocean(stage, game);
+        temple = new objects.Temple(stage, game);
 
         // Show Cursor
         stage.cursor = "default";

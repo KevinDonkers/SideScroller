@@ -1,21 +1,21 @@
-﻿/// <reference path="../objects/cloud.ts" />
-/// <reference path="../objects/island.ts" />
-/// <reference path="../objects/plane.ts" />
+﻿/// <reference path="../objects/arrow.ts" />
+/// <reference path="../objects/gem.ts" />
+/// <reference path="../objects/adventurer.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 
 module managers {
     // Collision Manager Class
     export class Collision {
         // class variables
-        private plane: objects.Plane;
-        private island: objects.Island;
-        private clouds = [];
+        private adventurer: objects.Adventurer;
+        private gem: objects.Gem;
+        private arrows = [];
         private scoreboard: objects.Scoreboard;
 
-        constructor(plane: objects.Plane, island: objects.Island, clouds, scoreboard: objects.Scoreboard) {
-            this.plane = plane;
-            this.island = island;
-            this.clouds = clouds;
+        constructor(adventurer: objects.Adventurer, gem: objects.Gem, arrows, scoreboard: objects.Scoreboard) {
+            this.adventurer = adventurer;
+            this.gem = gem;
+            this.arrows = arrows;
             this.scoreboard = scoreboard;
         }
 
@@ -37,41 +37,41 @@ module managers {
         }
 
         // check collision between plane and any cloud object
-        private planeAndCloud(cloud: objects.Cloud) {
+        private adventurerAndArrow(arrow: objects.Arrow) {
             var p1: createjs.Point = new createjs.Point();
             var p2: createjs.Point = new createjs.Point();
-            p1.x = this.plane.image.x;
-            p1.y = this.plane.image.y;
-            p2.x = cloud.image.x;
-            p2.y = cloud.image.y;
-            if (this.distance(p1, p2) < ((this.plane.height / 2) + (cloud.height / 2))) {
+            p1.x = this.adventurer.image.x;
+            p1.y = this.adventurer.image.y;
+            p2.x = arrow.image.x;
+            p2.y = arrow.image.y;
+            if (this.distance(p1, p2) < ((this.adventurer.height / 2) + (arrow.height / 2))) {
                 createjs.Sound.play("hit").volume = 1;
                 this.scoreboard.lives -= 1;
-                cloud.reset();
+                arrow.reset();
             }
         }
 
         // check collision between plane and island
-        private planeAndIsland() {
+        private adventurerAndGem() {
             var p1: createjs.Point = new createjs.Point();
             var p2: createjs.Point = new createjs.Point();
-            p1.x = this.plane.image.x;
-            p1.y = this.plane.image.y;
-            p2.x = this.island.image.x;
-            p2.y = this.island.image.y;
-            if (this.distance(p1, p2) < ((this.plane.height / 2) + (this.island.height / 2))) {
+            p1.x = this.adventurer.image.x;
+            p1.y = this.adventurer.image.y;
+            p2.x = this.gem.image.x;
+            p2.y = this.gem.image.y;
+            if (this.distance(p1, p2) < ((this.adventurer.height / 2) + (this.gem.height / 2))) {
                 createjs.Sound.play("yay").volume = 0.5;
                 this.scoreboard.multiplier += 1;
-                this.island.reset();
+                this.gem.reset();
             }
         }
 
         // Utility Function to Check Collisions
         update() {
             for (var count = 0; count < constants.CLOUD_NUM; count++) {
-                this.planeAndCloud(this.clouds[count]);
+                this.adventurerAndArrow(this.arrows[count]);
             }
-            this.planeAndIsland();
+            this.adventurerAndGem();
         }
     }
 } 

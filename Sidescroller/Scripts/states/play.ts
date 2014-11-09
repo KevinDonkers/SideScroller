@@ -1,16 +1,16 @@
 ﻿/// <reference path="../objects/button.ts" />
-/// <reference path="../objects/cloud.ts" />
-/// <reference path="../objects/island.ts" />
+/// <reference path="../objects/adventurer.ts" />
+/// <reference path="../objects/arrow.ts" />
+/// <reference path="../objects/gem.ts" />
+/// <reference path="../objects/temple.ts" />
 /// <reference path="../objects/label.ts" />
-/// <reference path="../objects/ocean.ts" />
-/// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../managers/collision.ts" />
 module states {
     export function playState() {
-        ocean.update();
-        island.update();
-        plane.update();
+        temple.update();
+        gem.update();
+        adventurer.update();
 
         for (var count = 0; count < constants.CLOUD_NUM; count++) {
             arrows[count].update();
@@ -22,7 +22,7 @@ module states {
 
         if (scoreboard.lives <= 0) {
             stage.removeChild(game);
-            plane.destroy();
+            adventurer.destroy();
             game.removeAllChildren();
             game.removeAllEventListeners();
             currentState = constants.GAME_OVER_STATE;
@@ -36,23 +36,23 @@ module states {
         game = new createjs.Container();
 
         // Instantiate Game Objects
-        ocean = new objects.Ocean(stage, game);
-        island = new objects.Island(stage, game);
-        plane = new objects.Plane(stage, game);
+        temple = new objects.Temple(stage, game);
+        gem = new objects.Gem(stage, game);
+        adventurer = new objects.Adventurer(stage, game);
 
         // Show Cursor
         stage.cursor = "none";
 
         // Create multiple clouds
         for (var count = 0; count < constants.CLOUD_NUM; count++) {
-            arrows[count] = new objects.Cloud(stage, game);
+            arrows[count] = new objects.Arrow(stage, game);
         }
 
         // Display Scoreboard
         scoreboard = new objects.Scoreboard(stage, game);
 
         // Instantiate Collision Manager
-        collision = new managers.Collision(plane, island, arrows, scoreboard);
+        collision = new managers.Collision(adventurer, gem, arrows, scoreboard);
 
         stage.addChild(game);
     }

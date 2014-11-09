@@ -70,11 +70,7 @@
     <Content Include="Scripts\managers\asset.js.map" />
     <Content Include="Scripts\managers\collision.js.map" />
     <Content Include="Scripts\objects\button.js.map" />
-    <Content Include="Scripts\objects\cloud.js.map" />
-    <Content Include="Scripts\objects\island.js.map" />
     <Content Include="Scripts\objects\label.js.map" />
-    <Content Include="Scripts\objects\ocean.js.map" />
-    <Content Include="Scripts\objects\plane.js.map" />
     <Content Include="Scripts\objects\scoreboard.js.map" />
     <Content Include="Scripts\states\gameover.js.map" />
     <Content Include="Scripts\states\menu.js.map" />
@@ -114,11 +110,7 @@
     <Content Include="Scripts\managers\asset.js" />
     <Content Include="Scripts\managers\collision.js" />
     <Content Include="Scripts\objects\button.js" />
-    <Content Include="Scripts\objects\cloud.js" />
-    <Content Include="Scripts\objects\island.js" />
     <Content Include="Scripts\objects\label.js" />
-    <Content Include="Scripts\objects\ocean.js" />
-    <Content Include="Scripts\objects\plane.js" />
     <Content Include="Scripts\objects\scoreboard.js" />
     <Content Include="Scripts\states\gameover.js" />
     <Content Include="Scripts\states\menu.js" />

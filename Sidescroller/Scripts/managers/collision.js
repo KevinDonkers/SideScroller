@@ -1,16 +1,16 @@
-﻿/// <reference path="../objects/cloud.ts" />
-/// <reference path="../objects/island.ts" />
-/// <reference path="../objects/plane.ts" />
+﻿/// <reference path="../objects/arrow.ts" />
+/// <reference path="../objects/gem.ts" />
+/// <reference path="../objects/adventurer.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 var managers;
 (function (managers) {
     // Collision Manager Class
     var Collision = (function () {
-        function Collision(plane, island, clouds, scoreboard) {
-            this.clouds = [];
-            this.plane = plane;
-            this.island = island;
-            this.clouds = clouds;
+        function Collision(adventurer, gem, arrows, scoreboard) {
+            this.arrows = [];
+            this.adventurer = adventurer;
+            this.gem = gem;
+            this.arrows = arrows;
             this.scoreboard = scoreboard;
         }
         // Utility method - Distance calculation between two points
@@ -31,41 +31,41 @@ var managers;
         };
 
         // check collision between plane and any cloud object
-        Collision.prototype.planeAndCloud = function (cloud) {
+        Collision.prototype.adventurerAndArrow = function (arrow) {
             var p1 = new createjs.Point();
             var p2 = new createjs.Point();
-            p1.x = this.plane.image.x;
-            p1.y = this.plane.image.y;
-            p2.x = cloud.image.x;
-            p2.y = cloud.image.y;
-            if (this.distance(p1, p2) < ((this.plane.height / 2) + (cloud.height / 2))) {
+            p1.x = this.adventurer.image.x;
+            p1.y = this.adventurer.image.y;
+            p2.x = arrow.image.x;
+            p2.y = arrow.image.y;
+            if (this.distance(p1, p2) < ((this.adventurer.height / 2) + (arrow.height / 2))) {
                 createjs.Sound.play("hit").volume = 1;
                 this.scoreboard.lives -= 1;
-                cloud.reset();
+                arrow.reset();
             }
         };
 
         // check collision between plane and island
-        Collision.prototype.planeAndIsland = function () {
+        Collision.prototype.adventurerAndGem = function () {
             var p1 = new createjs.Point();
             var p2 = new createjs.Point();
-            p1.x = this.plane.image.x;
-            p1.y = this.plane.image.y;
-            p2.x = this.island.image.x;
-            p2.y = this.island.image.y;
-            if (this.distance(p1, p2) < ((this.plane.height / 2) + (this.island.height / 2))) {
+            p1.x = this.adventurer.image.x;
+            p1.y = this.adventurer.image.y;
+            p2.x = this.gem.image.x;
+            p2.y = this.gem.image.y;
+            if (this.distance(p1, p2) < ((this.adventurer.height / 2) + (this.gem.height / 2))) {
                 createjs.Sound.play("yay").volume = 0.5;
                 this.scoreboard.multiplier += 1;
-                this.island.reset();
+                this.gem.reset();
             }
         };
 
         // Utility Function to Check Collisions
         Collision.prototype.update = function () {
             for (var count = 0; count < constants.CLOUD_NUM; count++) {
-                this.planeAndCloud(this.clouds[count]);
+                this.adventurerAndArrow(this.arrows[count]);
             }
-            this.planeAndIsland();
+            this.adventurerAndGem();
         };
         return Collision;
     })();
