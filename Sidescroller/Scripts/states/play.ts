@@ -17,6 +17,7 @@ module states {
         }
 
         collision.update();
+        scoreboard.score += 1 * scoreboard.multiplier;
         scoreboard.update();
 
         if (scoreboard.lives <= 0) {

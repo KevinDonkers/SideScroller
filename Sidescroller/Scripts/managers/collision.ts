@@ -61,7 +61,7 @@ module managers {
             p2.y = this.island.image.y;
             if (this.distance(p1, p2) < ((this.plane.height / 2) + (this.island.height / 2))) {
                 createjs.Sound.play("yay");
-                this.scoreboard.score += 100;
+                this.scoreboard.multiplier += 1;
                 this.island.reset();
             }
         }

@@ -8,6 +8,7 @@
             this.game = game;
             this.lives = constants.PLANE_LIVES;
             this.score = 0;
+            this.multiplier = 1;
             this.label = new createjs.Text(this.labelText, constants.LABEL_FONT, constants.LABEL_COLOUR);
             this.update();
             this.label.y = 440;
@@ -17,7 +18,7 @@
             game.addChild(this.label);
         }
         Scoreboard.prototype.update = function () {
-            this.labelText = "Lives: " + this.lives.toString() + " Score: " + this.score.toString();
+            this.labelText = "Lives: " + this.lives.toString() + " Score: " + this.score.toString() + " X" + this.multiplier.toString();
             this.label.text = this.labelText;
         };
 
