@@ -6,6 +6,7 @@
 /// <reference path="../objects/cloud.ts" />
 /// <reference path="../objects/button.ts" />
 /// <reference path="../objects/label.ts" />
+/// <reference path="../objects/gametext.ts" />
 module states {
     export function instructionState() {
         ocean.update();
@@ -15,9 +16,7 @@ module states {
     export function instructions() {
         var instructionTitleLabel: objects.Label;
         var instructionText: createjs.Text;
-        var arrowText: createjs.Text;
-        var gemText: createjs.Text;
-        var avatarText: createjs.Text;
+        var labelText: objects.gameText;
 
         // Declare new Game Container
         game = new createjs.Container();
@@ -49,25 +48,25 @@ module states {
 
         game.addChild(instructionTitleLabel);
         game.addChild(instructionText);
+        
+        labelText = new objects.gameText(180, 350, "RUBY ADVENTURER ARROW");
 
-        avatarText = new createjs.Text("ADVENTURER", constants.TEXT_FONT, constants.LABEL_COLOUR);
-        arrowText = new createjs.Text("RUBY", constants.TEXT_FONT, constants.LABEL_COLOUR);
-        arrowText = new createjs.Text("ARROW", constants.TEXT_FONT, constants.LABEL_COLOUR);
-
-        instructionAvatar.x = 10;
+        instructionAvatar.x = 150;
         instructionAvatar.y = 380;
 
-        instructionGem.x = 80;
+        instructionGem.x = 20;
         instructionGem.y = 400;
 
-        instructionArrow.x = 480;
-        instructionArrow.y = 430;
+        instructionArrow.x = 270;
+        instructionArrow.y = 400;
 
+        game.addChild(instructionAvatar);
         game.addChild(instructionArrow);
         game.addChild(instructionGem);
-        game.addChild(instructionAvatar);
+        game.addChild(labelText);
+        
         // Display Play Button
-        playButton = new objects.Button(stage.canvas.width / 2, 430, "playButton");
+        playButton = new objects.Button(500, 430, "playButton");
         game.addChild(playButton);
         playButton.addEventListener("click", playButtonClicked);
 
