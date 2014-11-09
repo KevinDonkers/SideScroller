@@ -47,6 +47,7 @@ function init(): void {
     createjs.Ticker.addEventListener("tick", gameLoop);
     optimizeForMobile();
     themeSound = createjs.Sound.play('theme', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
+    themeSound.volume = 0.5;
     currentState = constants.MENU_STATE;
     changeState(currentState);
 }

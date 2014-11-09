@@ -1,14 +1,9 @@
 ﻿/// <reference path="../managers/asset.ts" />
-module objects {
+var objects;
+(function (objects) {
     // Cloud class
-    export class Cloud {
-        image: createjs.Sprite;
-        stage: createjs.Stage;
-        game: createjs.Container;
-        width: number;
-        height: number;
-        dx: number;
-        constructor(stage: createjs.Stage, game: createjs.Container) {
+    var Arrow = (function () {
+        function Arrow(stage, game) {
             this.stage = stage;
             this.game = game;
             this.image = new createjs.Sprite(managers.Assets.atlas, "arrow");
@@ -20,23 +15,24 @@ module objects {
 
             game.addChild(this.image);
         }
-
-        update() {
+        Arrow.prototype.update = function () {
             this.image.x -= this.dx;
             if (this.image.x <= (0 - this.height)) {
                 this.reset();
             }
-        }
+        };
 
-        reset() {
+        Arrow.prototype.reset = function () {
             this.image.y = Math.floor(Math.random() * this.stage.canvas.height);
             this.dx = Math.floor(Math.random() * 5 + 10);
             this.image.x = this.stage.canvas.width + this.width;
-        }
+        };
 
-        destroy() {
+        Arrow.prototype.destroy = function () {
             game.removeChild(this.image);
-        }
-    }
-
-}
+        };
+        return Arrow;
+    })();
+    objects.Arrow = Arrow;
+})(objects || (objects = {}));
+//# sourceMappingURL=arrow.js.map

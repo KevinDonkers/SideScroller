@@ -141,11 +141,11 @@
     <TypeScriptCompile Include="Scripts\managers\asset.ts" />
     <TypeScriptCompile Include="Scripts\managers\collision.ts" />
     <TypeScriptCompile Include="Scripts\objects\button.ts" />
-    <TypeScriptCompile Include="Scripts\objects\cloud.ts" />
-    <TypeScriptCompile Include="Scripts\objects\island.ts" />
+    <TypeScriptCompile Include="Scripts\objects\arrow.ts" />
+    <TypeScriptCompile Include="Scripts\objects\gem.ts" />
     <TypeScriptCompile Include="Scripts\objects\label.ts" />
-    <TypeScriptCompile Include="Scripts\objects\ocean.ts" />
-    <TypeScriptCompile Include="Scripts\objects\plane.ts" />
+    <TypeScriptCompile Include="Scripts\objects\temple.ts" />
+    <TypeScriptCompile Include="Scripts\objects\adventurer.ts" />
     <TypeScriptCompile Include="Scripts\objects\scoreboard.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameText.ts" />
     <TypeScriptCompile Include="Scripts\states\gameover.ts" />
