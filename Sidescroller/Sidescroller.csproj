@@ -63,7 +63,7 @@
     <Content Include="assets\sounds\gem.wav" />
     <Content Include="assets\sounds\hit.wav" />
     <Content Include="assets\sounds\theme.wav" />
-    <Content Include="mailPilot-v11.csproj" />
+    <Content Include="TempleDiver.csproj" />
     <Content Include="Scripts\constants.js.map" />
     <Content Include="Scripts\game.js.map" />
     <Content Include="Scripts\lib\jquery-2.1.1.min.map" />
@@ -84,7 +84,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\images\atlas.png" />
-    <Content Include="assets\images\loading.jpg" />
     <Content Include="css\app.css" />
     <Content Include="css\normalize.css" />
     <Content Include="index.html" />

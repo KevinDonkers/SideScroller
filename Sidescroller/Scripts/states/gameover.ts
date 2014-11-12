@@ -26,6 +26,8 @@ module states {
         var gameOverLabel: objects.Label;
         var finalScoreLabel: objects.Label;
         var finalScore: objects.Label;
+        var finalMultiplierLabel: objects.Label;
+        var finalMultiplier: objects.Label;
 
         // Declare new Game Container
         game = new createjs.Container();
@@ -48,8 +50,16 @@ module states {
         finalScore = new objects.Label(stage.canvas.width / 2, 160, scoreboard.score.toString());
         game.addChild(finalScore);
 
+        // Display Final Multiplier Label
+        finalMultiplierLabel = new objects.Label(stage.canvas.width / 2, 200, "FINAL MULTIPLIER");
+        game.addChild(finalMultiplierLabel);
+
+        // Display Final Multiplier
+        finalMultiplier = new objects.Label(stage.canvas.width / 2, 240, "X" + scoreboard.multiplier.toString());
+        game.addChild(finalMultiplier);
+
         // Display Try Again Button
-        tryAgain = new objects.Button(stage.canvas.width / 2, 300, "tryAgainButton");
+        tryAgain = new objects.Button(stage.canvas.width / 2, 350, "tryAgainButton");
         game.addChild(tryAgain);
         tryAgain.addEventListener("click", tryAgainClicked);
 
