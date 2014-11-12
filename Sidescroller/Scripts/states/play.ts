@@ -8,18 +8,23 @@
 /// <reference path="../managers/collision.ts" />
 module states {
     export function playState() {
+        //update the background, the gems, the arrows and the adventurer
         temple.update();
         gem.update();
         adventurer.update();
 
-        for (var count = 0; count < constants.CLOUD_NUM; count++) {
+        for (var count = 0; count < constants.ARROW_NUM; count++) {
             arrows[count].update();
         }
 
+        //check for any collisions
         collision.update();
+
+        //add to the score once every tick times the current multiplier
         scoreboard.score += 1 * scoreboard.multiplier;
         scoreboard.update();
 
+        //if the player dies switch to the game over screen
         if (scoreboard.lives <= 0) {
             stage.removeChild(game);
             adventurer.destroy();
@@ -44,7 +49,7 @@ module states {
         stage.cursor = "none";
 
         // Create multiple clouds
-        for (var count = 0; count < constants.CLOUD_NUM; count++) {
+        for (var count = 0; count < constants.ARROW_NUM; count++) {
             arrows[count] = new objects.Arrow(stage, game);
         }
 

@@ -1,6 +1,6 @@
 ﻿/// <reference path="../managers/asset.ts" />
 module objects {
-    // Cloud class
+    // Arrow class
     export class Arrow {
         image: createjs.Sprite;
         stage: createjs.Stage;
@@ -21,6 +21,7 @@ module objects {
             game.addChild(this.image);
         }
 
+        //updates the arrow every frame
         update() {
             this.image.x -= this.dx;
             if (this.image.x <= (0 - this.height)) {
@@ -28,12 +29,14 @@ module objects {
             }
         }
 
+        //resets the arrow back to the right of the screen
         reset() {
             this.image.y = Math.floor(Math.random() * this.stage.canvas.height);
             this.dx = Math.floor(Math.random() * 5 + 10);
             this.image.x = this.stage.canvas.width + this.width;
         }
 
+        //removes the arrow from the game container
         destroy() {
             game.removeChild(this.image);
         }

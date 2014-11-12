@@ -1,7 +1,7 @@
 ﻿/// <reference path="../managers/asset.ts" />
 var objects;
 (function (objects) {
-    // Plane Class
+    // Adventurer Class
     var Adventurer = (function () {
         function Adventurer(stage, game) {
             this.stage = stage;
@@ -14,9 +14,12 @@ var objects;
             this.image.regY = this.height * 0.5;
             game.addChild(this.image);
         }
+        //updates the adventurers position every frame
         Adventurer.prototype.update = function () {
             this.image.y = this.stage.mouseY;
         };
+
+        //removes the adventurer from the game container
         Adventurer.prototype.destroy = function () {
             game.removeChild(this.image);
         };

@@ -1,6 +1,6 @@
 ﻿/// <reference path="../managers/asset.ts" />
 module objects {
-    // Ocean Class
+    // Temple Class
     export class Temple {
         image: createjs.Bitmap;
         stage: createjs.Stage;
@@ -22,6 +22,7 @@ module objects {
             game.addChild(this.image);
         }
 
+        //updates the x value of the background every frame to look like its scrolling
         update() {
             this.image.x -= this.dx;
             if (this.image.x <= 640) {
@@ -29,10 +30,12 @@ module objects {
             }
         }
 
+        //sets the background image back to the start
         reset() {
             this.image.x = 1920;
         }
 
+        //removes the background from the game container
         destroy() {
             game.removeChild(this.image);
         }

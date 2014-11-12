@@ -68,7 +68,7 @@ module managers {
 
         // Utility Function to Check Collisions
         update() {
-            for (var count = 0; count < constants.CLOUD_NUM; count++) {
+            for (var count = 0; count < constants.ARROW_NUM; count++) {
                 this.adventurerAndArrow(this.arrows[count]);
             }
             this.adventurerAndGem();

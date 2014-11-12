@@ -1,6 +1,6 @@
 ﻿/// <reference path="../managers/asset.ts" />
 module objects {
-    // Island Class
+    // Gem Class
     export class Gem {
         image: createjs.Sprite;
         stage: createjs.Stage;
@@ -23,6 +23,7 @@ module objects {
             game.addChild(this.image);
         }
 
+        //updates the gem every frame
         update() {
             this.image.x -= this.dx;
             if (this.image.x <= (0 - this.width)) {
@@ -30,11 +31,13 @@ module objects {
             }
         }
 
+        //puts the gem at a random height back at the right of the screen
         reset() {
             this.image.y = Math.floor(Math.random() * this.stage.canvas.width);
             this.image.x = this.stage.canvas.width + this.width;
         }
 
+        //removes the gem from the game container
         destroy() {
             game.removeChild(this.image);
         }

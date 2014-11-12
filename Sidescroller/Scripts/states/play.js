@@ -9,6 +9,7 @@
 var states;
 (function (states) {
     function playState() {
+        //update the background, the gems, the arrows and the adventurer
         temple.update();
         gem.update();
         adventurer.update();
@@ -17,10 +18,14 @@ var states;
             arrows[count].update();
         }
 
+        //check for any collisions
         collision.update();
+
+        //add to the score once every tick times the current multiplier
         scoreboard.score += 1 * scoreboard.multiplier;
         scoreboard.update();
 
+        //if the player dies switch to the game over screen
         if (scoreboard.lives <= 0) {
             stage.removeChild(game);
             adventurer.destroy();

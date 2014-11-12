@@ -7,10 +7,10 @@
     constants.INSTRUCTION_STATE = 3;
 
     // Game Constants
-    constants.CLOUD_NUM = 3;
+    constants.ARROW_NUM = 3;
     constants.LABEL_FONT = "40px Consolas";
     constants.TEXT_FONT = "30px Consolas";
     constants.LABEL_COLOUR = "#FFFF00";
-    constants.PLANE_LIVES = 3;
+    constants.ADVENTURER_LIVES = 3;
 })(constants || (constants = {}));
 //# sourceMappingURL=constants.js.map

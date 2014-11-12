@@ -6,9 +6,9 @@
     export var INSTRUCTION_STATE: number = 3;
 
     // Game Constants
-    export var CLOUD_NUM: number = 3;
+    export var ARROW_NUM: number = 3;
     export var LABEL_FONT = "40px Consolas";
     export var TEXT_FONT = "30px Consolas";
     export var LABEL_COLOUR = "#FFFF00";
-    export var PLANE_LIVES = 3;
+    export var ADVENTURER_LIVES = 3;
 }

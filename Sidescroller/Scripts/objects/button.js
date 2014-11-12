@@ -8,6 +8,7 @@
 /// <reference path="../managers/asset.ts" />
 var objects;
 (function (objects) {
+    //button class
     var Button = (function (_super) {
         __extends(Button, _super);
         function Button(x, y, buttonIDString) {
@@ -18,16 +19,19 @@ var objects;
             this.y = y;
             this.setButtonListeners();
         }
+        //gives the button its functionality
         Button.prototype.setButtonListeners = function () {
             this.cursor = 'pointer';
             this.on('rollover', this.onButtonOver);
             this.on('rollout', this.onButtonOut);
         };
 
+        //sets the transparency to 80% when the mouse is over
         Button.prototype.onButtonOver = function () {
             this.alpha = 0.8;
         };
 
+        //sets the alpha back to 100% when the mouse leaves the button
         Button.prototype.onButtonOut = function () {
             this.alpha = 1;
         };

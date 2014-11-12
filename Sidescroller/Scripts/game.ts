@@ -14,22 +14,27 @@
 /// <reference path="states/gameover.ts" />
 /// <reference path="states/instructions.ts" />
 
+//create the stage, game container and theme sound instance
 var stage: createjs.Stage;
 var game: createjs.Container;
 var themeSound: createjs.SoundInstance;
 
+//game objects
 var temple: objects.Temple;
 var adventurer: objects.Adventurer;
 var gem: objects.Gem;
 var arrows = []; // Arrows array;
 var scoreboard: objects.Scoreboard;
 
+//collision manager
 var collision: managers.Collision;
 
+//buttons
 var tryAgain: objects.Button;
 var playButton: objects.Button;
 var instructionsButton: objects.Button;
 
+//state variables
 var currentState: number;
 var currentStateFunction;
 
@@ -65,6 +70,7 @@ function gameLoop(event): void {
     stage.update();
 }
 
+//state machine
 function changeState(state: number): void {
     // Launch Various "screens"
     switch (state) {
@@ -78,6 +84,8 @@ function changeState(state: number): void {
             // instantiate play screen
             currentStateFunction = states.playState;
             states.play();
+
+            //if the music isnt playing then play it
             if (themeSound.playState != createjs.Sound.PLAY_SUCCEEDED) {
                 themeSound.play();
             }

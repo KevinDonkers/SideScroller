@@ -1,6 +1,6 @@
 ﻿/// <reference path="../managers/asset.ts" />
 module objects {
-    // Plane Class
+    // Adventurer Class
     export class Adventurer {
         image: createjs.Sprite;
         stage: createjs.Stage;
@@ -19,9 +19,12 @@ module objects {
             game.addChild(this.image);
         }
 
+        //updates the adventurers position every frame
         update() {
             this.image.y = this.stage.mouseY;
         }
+
+        //removes the adventurer from the game container
         destroy() {
             game.removeChild(this.image);
         }

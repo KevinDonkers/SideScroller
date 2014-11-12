@@ -1,7 +1,7 @@
 ﻿/// <reference path="../managers/asset.ts" />
 var objects;
 (function (objects) {
-    // Ocean Class
+    // Temple Class
     var Temple = (function () {
         function Temple(stage, game) {
             this.stage = stage;
@@ -16,6 +16,7 @@ var objects;
 
             game.addChild(this.image);
         }
+        //updates the x value of the background every frame to look like its scrolling
         Temple.prototype.update = function () {
             this.image.x -= this.dx;
             if (this.image.x <= 640) {
@@ -23,10 +24,12 @@ var objects;
             }
         };
 
+        //sets the background image back to the start
         Temple.prototype.reset = function () {
             this.image.x = 1920;
         };
 
+        //removes the background from the game container
         Temple.prototype.destroy = function () {
             game.removeChild(this.image);
         };

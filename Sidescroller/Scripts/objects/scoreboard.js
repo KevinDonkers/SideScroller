@@ -17,11 +17,13 @@
 
             game.addChild(this.label);
         }
+        //updates the scoreboard every frame
         Scoreboard.prototype.update = function () {
             this.labelText = "Lives: " + this.lives.toString() + " Score: " + this.score.toString() + " X" + this.multiplier.toString();
             this.label.text = this.labelText;
         };
 
+        //removes the scoreboard from the game container
         Scoreboard.prototype.destroy = function () {
             game.removeChild(this.label);
         };

@@ -1,7 +1,7 @@
 ﻿/// <reference path="../managers/asset.ts" />
 var objects;
 (function (objects) {
-    // Cloud class
+    // Arrow class
     var Arrow = (function () {
         function Arrow(stage, game) {
             this.stage = stage;
@@ -15,6 +15,7 @@ var objects;
 
             game.addChild(this.image);
         }
+        //updates the arrow every frame
         Arrow.prototype.update = function () {
             this.image.x -= this.dx;
             if (this.image.x <= (0 - this.height)) {
@@ -22,12 +23,14 @@ var objects;
             }
         };
 
+        //resets the arrow back to the right of the screen
         Arrow.prototype.reset = function () {
             this.image.y = Math.floor(Math.random() * this.stage.canvas.height);
             this.dx = Math.floor(Math.random() * 5 + 10);
             this.image.x = this.stage.canvas.width + this.width;
         };
 
+        //removes the arrow from the game container
         Arrow.prototype.destroy = function () {
             game.removeChild(this.image);
         };
